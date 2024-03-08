@@ -4,7 +4,6 @@ import { ProductsScreen } from '../screens/products/ProductsScreen';
 import { SettingsScreen } from '../screens/settings/SettingsScreen';
 import { ProductScreen } from '../screens/products/ProductScreen';
 
-
 export type RootStackParams = {
     Home: undefined,
     Product: { id: number, name: string },
