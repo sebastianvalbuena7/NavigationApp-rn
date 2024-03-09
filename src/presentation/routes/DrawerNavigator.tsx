@@ -3,10 +3,13 @@ import { DrawerContentComponentProps, DrawerContentScrollView, DrawerItemList, c
 import { StackNavigator } from './StackNavigator';
 import { ProfileScreen } from '../screens/profile/ProfileScreen';
 import { globalColors } from '../theme/theme';
+import { BottomTabNavigator } from './BottomTabNavigator';
+import { IonIcon } from '../components/shared/IonIcon';
 
 export type RootDrawerParams = {
-    StackNavigator: undefined,
-    Profile: undefined
+    // StackNavigator: undefined,
+    Tabs: undefined;
+    Profile: undefined;
 }
 
 const Drawer = createDrawerNavigator<RootDrawerParams>();
@@ -29,14 +32,32 @@ export const DrawerNavigator = () => {
                 }
             }}
         >
-            <Drawer.Screen name="StackNavigator" component={StackNavigator} options={{
-                drawerItemStyle: {
-                    marginTop: 10,
-                    borderRadius: 100,
-                    paddingHorizontal: 20
-                }
-            }} />
-            <Drawer.Screen name="Profile" component={ProfileScreen} />
+            {/* <Drawer.Screen
+                name="StackNavigator"
+                component={StackNavigator}
+                options={{
+                    drawerItemStyle: {
+                        marginTop: 10,
+                        borderRadius: 100,
+                        paddingHorizontal: 20
+                    }
+                }}
+            /> */}
+            <Drawer.Screen
+                name="Tabs"
+                component={BottomTabNavigator}
+                options={{
+                    drawerIcon: ({ color }) => (<IonIcon name='bonfire-outline' color={color} />)
+                }}
+            />
+
+            <Drawer.Screen
+                name="Profile"
+                component={ProfileScreen}
+                options={{
+                    drawerIcon: ({ color }) => (<IonIcon name='cafe-outline' color={color} />)
+                }}
+            />
         </Drawer.Navigator>
     );
 }

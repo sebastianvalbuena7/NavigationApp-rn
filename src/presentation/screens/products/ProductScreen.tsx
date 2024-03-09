@@ -11,7 +11,7 @@ export const ProductScreen = () => {
     useEffect(() => {
         navigation.setOptions({
             title: params.name
-        })
+        });
     }, []);
 
     return (
